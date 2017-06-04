@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+  <style>
+  table, td {
+    border: 1px solid black;
+    font-style: italic;
+    text-align: center;
+  }
+  th {
+    border: 2px solid black;
+    text-align: center;
+  }
+  table {
+    width: 540px;
+    table-layout: fixed;
+    margin-top: 20px;
+  }
+  td {width: 90px}
+  div {
+    color: #009933;
+    margin: auto;
+    }
+  input {
+    type: text;
+    width: 75px;
+  }
+  </style>
+  
+  <body>
+  <form name="info">
+    <table align="center">
+      <tr>
+        <th>p</th><th>~p</th><th>q</th>
+        <th>r</th><th>q∧r</th><th>~p∨(q∧r)</th>
+      </tr>
+      <tr>
+        <td>T</td><td>F</td><td>T</td>
+        <td>T</td><td>T</td><td>T</td>
+      </tr>
+      <tr>
+        <td>T</td><td>F</td><td>T</td>
+        <td>F</td><td>F</td><td>F</td>
+      </tr>
+      <tr>
+        <td>T</td><td>F</td>
+        <td><input name="ip1"></td>
+        <td>T</td><td>F</td>
+        <td><input name="ip2"></td>
+      </tr>
+      <tr>
+        <td>T</td><td>F</td><td>F</td>
+        <td>F</td><td>F</td><td>F</td>
+      </tr>
+      <tr>
+        <td>F</td><td>T</td><td>T</td>
+        <td><input name="ip3"></td>
+        <td>T</td><td>T</td>
+      </tr>
+      <tr>
+        <td>F</td>
+        <td><input name="ip4"></td>
+        <td>T</td>
+        <td>F</td><td>F</td><td>T</td>
+      </tr>
+      <tr>
+        <td>F</td>
+        <td>T</td>
+        <td><input name="ip5"></td>
+        <td>T</td><td>F</td><td>T</td>
+      </tr>
+      <tr>
+        <td>F</td><td>T</td><td>F</td>
+        <td>F</td>
+        <td><input name="ip6"></td>
+        <td>T</td>
+      </tr>
+    </table>
+  </form>
+
+  <script>
+    function makeLog(){
+    var holder = document.createElement('div');
+    holder.style.fontFamily = 'monospace';
+    holder.style.fontSize = '14';
+    holder.style.height = '300px';
+    holder.style.width = '400px';
+    holder.style.overflow = 'auto';
+    holder.style.border = '1px solid #666';
+    holder.style.backgroundColor = '#000';
+    holder.style.padding = '8px';
+    holder.style.marginTop = '20px';
+    holder.style.marginBottom = '20px';
+    document.body.appendChild(holder);
+    
+    return holder;
+  }
+  
+  var terminal = makeLog();
+  var correct = false;
+  
+  function logMessage(text,log){
+    var message = document.createElement('div');
+    message.textContent = text;
+    log.appendChild(message);
+  }
+  
+  logMessage('New Login: ' + new Date(Date.parse('2000-1-1 03:14:00')), terminal)
+  logMessage(' ', terminal)
+  
+  function checkInput(){
+    if (!correct) {
+      correct = true;
+      if (document.info.ip1.value != 'F' && document.info.ip1.value != 'f'){
+        logMessage('Incorrect Input Received (3, 3).', terminal);
+        correct = false;
+      }
+      if (document.info.ip2.value != 'F' && document.info.ip2.value != 'f'){
+        logMessage('Incorrect Input Received (6, 3).', terminal);
+        correct = false;
+      }
+      if (document.info.ip3.value != 'T' && document.info.ip3.value != 't'){
+        logMessage('Incorrect Input Received (4, 5).', terminal);
+        correct = false;
+      }
+      if (document.info.ip4.value != 'T' && document.info.ip4.value != 't'){
+        logMessage('Incorrect Input Received (2, 6).', terminal);
+        correct = false;
+      }
+      if (document.info.ip5.value != 'F' && document.info.ip5.value != 'f'){
+        logMessage('Incorrect Input Received (3, 7).', terminal);
+        correct = false;
+      }
+      if (document.info.ip6.value != 'F' && document.info.ip6.value != 'f'){
+        logMessage('Incorrect Input Received (5, 8).', terminal);
+        correct = false;
+      }
+      if (correct) logMessage('Correct Input Received.', terminal);
+    }
+  }
+  
+  document.addEventListener('keydown', function(event){
+    if (event.keyCode == 13) checkInput();
+  });
+  </script>
+  </body>
+</html>
