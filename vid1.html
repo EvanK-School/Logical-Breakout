@@ -13,17 +13,24 @@
   
   <body>
     <div align="center">
-      <p>Enter Access Code: <input type="text" align="center" id="ip1"></p>
+      <form name="info">
+        <p id="input">Enter Access Code: <input type="text" align="center" id="ip1"></p>
+      </form>
     </div>
     <iframe src="https://www.youtube.com/embed/4ZpUjcLJEqw" id="vid1"></iframe>
     
     <script>
-      var ip1 = document.getElementById('ip1');
+      var par = document.getElementById('input');
+        par.style.fontFamily = 'monospace';
+      
       var vid1 = document.getElementById('vid1');
       document.body.removeChild(vid1);
       document.addEventListener('keydown', function(event){
         var key = event.keyCode;
-        if (key == 13) document.body.appendChild(vid1);
+        if (key == 13) {
+          var ip1 = document.info.ip1.value;
+          if (ip1 == 'a') document.body.appendChild(vid1);
+        }
       });
     </script>
   </body>
