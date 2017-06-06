@@ -1,7 +1,8 @@
-# Truth-Tables
-This is my little HTML program to
-create an interatctive truth table.
+"Truth Tables" is the HTML for an
+interactive truth table I created
+for my "Logical Breakout."
 
-It uses JavaScript to create a
-terminal which displays output
-from the table.
+There are two video websites that 
+will need an "access code," and if 
+I need any more HTML, it will be 
+created here.
