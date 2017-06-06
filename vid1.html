@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  
+  <style>
+    iframe {
+      width: 889px;
+      height: 500px;
+      frameBorder: 50px solid #000000;
+      display: block;
+      margin: 0px auto;
+    }
+  </style>
+  
+  <body>
+    <div align="center">
+      <form name="info">
+        <p id="input">Enter Access Code: <input type="text" align="center" id="ip1"></p>
+      </form>
+    </div>
+    <iframe src="https://www.youtube.com/embed/4ZpUjcLJEqw" id="vid1"></iframe>
+    
+    <script>
+      var par = document.getElementById('input');
+        par.style.fontFamily = 'monospace';
+      
+      var vid1 = document.getElementById('vid1');
+      document.body.removeChild(vid1);
+      document.addEventListener('keydown', function(event){
+        var key = event.keyCode;
+        if (key == 13) {
+          var ip1 = document.info.ip1.value;
+          if (ip1 == 'a') document.body.appendChild(vid1);
+        }
+      });
+    </script>
+  </body>
+</html>
