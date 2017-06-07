@@ -104,7 +104,7 @@
     log.appendChild(message);
   }
   
-  logMessage('New Login: ' + new Date(Date.parse('2000-1-1 03:14:00')), terminal)
+  logMessage('New Login: ' + new Date(Date.parse('2000-1-1 03:14:15')), terminal)
   logMessage(' ', terminal)
   
   function checkInput(){
@@ -134,7 +134,10 @@
         logMessage('Incorrect Input Received (5, 8).', terminal);
         correct = false;
       }
-      if (correct) logMessage('Correct Input Received. (F F T T F F)', terminal);
+      if (correct) {
+        logMessage('Correct Input Received. (F F T T F F)', terminal);
+        logMessage('PC Access Code: .)n;+HHy%-Wt86wt', terminal);
+      }
     }
   }
   
