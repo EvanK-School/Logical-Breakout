@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  
+  <link rel="stylesheet" type="text/css" href="videoStyle.css">  
+  <body>
+    <div align="center">
+      <form name="info">
+        <p id="input">Enter Access Code: <input type="text" align="center" id="ip1"></p>
+      </form>
+    </div>
+    <iframe src="https://www.youtube.com/embed/Skf8NTEnrO4" id="vid1"></iframe>
+    
+    <script>
+      var par = document.getElementById('input');
+        par.style.fontFamily = 'monospace';
+      
+      var vid1 = document.getElementById('vid1');
+      document.body.removeChild(vid1);
+      document.addEventListener('keydown', function(event){
+        var key = event.keyCode;
+        if (key == 13) {
+          var ip1 = document.info.ip1.value;
+          if (ip1 == '.)n;+HHy%-Wt86wt') document.body.appendChild(vid1);
+        }
+      });
+    </script>
+  </body>
+</html>
